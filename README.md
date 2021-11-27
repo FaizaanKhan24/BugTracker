@@ -4,7 +4,7 @@ Web Programming with Python and JavaScript
 
 Bug Tracking web application using Django and JavaScript
 
-Demo : [Demo Link](https://www.youtube.com/watch?v=bczVH0IxPjg&t=29s)
+[Demo Link](https://www.youtube.com/watch?v=bczVH0IxPjg&t=29s)
 
 This web application is build with the help of Python's Web framework Django and some help from JavaScript.
 
