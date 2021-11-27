@@ -1,0 +1,87 @@
+{% extends 'layout.html' %}
+
+{% block body %}
+    <div class="container-fluid">
+        <div class="row full">
+            <div class="filling col-12">
+                <div>
+                    <a href="{% url 'home' %}"><button class="btn btn-outline-light" type="button">Home</button></a>
+                </div>
+                <div>
+                    <h4 class="bug-heading" id="Bug_id">#Bug-{{ bugDetail.id }}</h4>
+                </div>
+                <div>
+                    <table class="table bug_table">
+                        <tbody>
+                            <tr>
+                                <th>Bug Summary</th>
+                                <td>:</td>
+                                <td>{{ bugDetail.bugName }}</td>
+                            </tr>
+                            <tr>
+                                <th>Engineer Name</th>
+                                <td>:</td>
+                                <td id="engineer">{{bugDetail.engineerName}}</td>
+                            </tr>
+                            <tr>
+                                <th>Engineer Designation</th>
+                                <td>:</td>
+                                <td>{{ bugDetail.engineerDesignation }}</td>
+                            </tr>
+                            <tr>
+                                <th>Progress status</th>
+                                <td>:</td>
+                                <td>{{bugDetail.progressStatus}}</td>
+                            </tr>
+                            <tr>
+                                <th>User name</th>
+                                <td>:</td>
+                                <td>{{ bugDetail.userName }}</td>
+                            </tr>
+                            <tr>
+                                <th>User email</th>
+                                <td>:</td>
+                                <td>{{bugDetail.userEmail}}</td>
+                            </tr>
+                            <tr>
+                                <th>User phone number</th>
+                                <td>:</td>
+                                <td>{{bugDetail.userPhoneNumber}}</td>
+                            </tr>                            
+                        </tbody>
+                    </table>
+                </div>
+                <div>
+                    <form id="changeProperty">
+                        <h6>Change Progress</h6>
+                        <div class="form-group">
+                            <select name="bug-status" id="bugStatus">
+                                <option value="Open">Open</option>
+                                <option value="In Progress">In Progress</option>
+                                <option value="Testing">Testing</option>
+                                <option value="Closed">Closed</option>
+                            </select>
+                        </div>
+                        <h6>Change Engineer</h6>
+                        <div class="form-group">
+                            <select name="Engineer" id="Engineer">
+                                {% for engineer in engineers %}
+                                    <option value="{{engineer.id}}">{{ engineer.name }} - {{ engineer.designation }}</option>
+                                {% endfor %}
+                            </select>
+                        </div>
+                        <button class="btn btn-success" type="submit">Change</button>
+                    </form>
+               </div>
+               <hr>
+               <div>
+                   <h4>Description</h4>
+               </div>
+               <div class="bug_description">
+                {{ bugDetail.description|linebreaks }}
+            </div> 
+        </div>
+    </div>
+    {% load static %}
+    <script src="{% static 'BugPage.js' %}"></script>
+{% endblock %}

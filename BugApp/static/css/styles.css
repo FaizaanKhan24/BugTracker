@@ -1,0 +1,65 @@
+body{
+    background-color:  rgb(18, 105, 184);
+}
+
+.navigationBar{
+    background-color: black;
+    color: whitesmoke;
+}
+
+.registerLayout{
+    background-color: rgb(169, 158, 222);
+}
+
+.register{
+    padding: 10px 15px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 20px;
+    text-align: justify;
+    border-radius: 15px;
+    background-color: lightgray;
+    color: black;
+}
+
+.button_margin{
+    margin-top: 10px;
+    margin-bottom: 15px;
+}
+
+.AppBackground{
+    background-color: rgb(18, 105, 184);
+    color: white;
+}
+
+.bug-form{
+    background-color: lightgray;
+    margin: 30px auto;
+    padding: 12px;
+    color: black;
+}
+
+.bug-heading{
+    text-align: center;
+}
+
+.centerDiv{
+    margin: 30px auto;
+}
+
+.table_style{
+    background-color: rgb(121, 192, 248);
+    color: black;
+}
+
+.bug_table{
+    background-color: rgb(148, 172, 204);
+    color: black;
+}
+
+.bug_description{
+    background-color: rgb(148, 172, 204);
+    color: black;
+    padding: 5px;
+    margin: 20px auto;   
+}

@@ -1,0 +1,71 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Login Page</title>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+        <link rel="stylesheet" href="{% static 'css/styles.css' %}" type="text/css">
+    </head>
+    <body style="height: 100%;">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-12" style="margin: 0; padding: 0;">
+                    <nav class="navbar navigationBar">
+                        <a class="navbar-brand col-6">Bug Tracker</a>
+                        <form class="form-inline" method="POST" action="{% url 'start' %}">
+                            {% csrf_token %}
+                            <input class="form-control mr-sm-2" type="text" placeholder="Username" name="username">
+                            <input class="form-control mr-sm-2" type="password" placeholder="Password" name="password">
+                            <button class="btn btn-outline-success my-2 my-sm-0" type="submit" name="submit" value="sign_in">Login</button>
+                        </form>
+                    </nav>
+                </div>
+            </div>
+            {% if messages %}
+                {% for message in messages %}
+                    <div role="alert" class="alert {{ message.tags }}">
+                        {{ message }}
+                    </div>
+                {% endfor %}
+            {% endif %}
+            <div class="container-fluid">
+                <div class="row" >
+                    <div class="col-4 register"> 
+                        <h4 style="text-align: center;">Create an account to report a bug</h4>
+                        <form method="POST" action="{% url 'register' %}">
+                            {% csrf_token %}
+                            <div>
+                                <div>Username</div>
+                                {{form.username}}
+                            </div>
+                            <div>
+                                <div>Password</div>
+                                {{form.password1}}
+                            </div>
+                            <div>
+                                <div>Retype Password</div>
+                                {{form.password2}}
+                            </div>
+                            <div>
+                                <div>First name</div>
+                                {{form.first_name}}
+                            </div>
+                            <div>
+                                <div>Last name</div>
+                                {{form.last_name}}
+                            </div>
+                            <div>
+                                <div>Email</div>
+                                {{form.email}}
+                            </div>
+                            <div class="button_margin">
+                                <button type="submit" class="btn btn-primary button_margin" name="submit" value="sign_out">Submit</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

@@ -1,0 +1,41 @@
+{% extends 'layout.html' %}
+
+{% block body %}
+    <div class="container-fluid">
+        <div class="row">
+            <div style="color: black;" class="col-10 bug-form">
+                {% if messages %}
+                {% for message in messages %}
+                    <div class="alert alert-success" role="alert" style="text-align: center;"> 
+                        {{ message }}
+                    </div>
+                {% endfor %}
+                {% endif %}
+                <form method="POST">
+                    {% csrf_token %}
+                    <div class="form-group">
+                        <label for="user-name">Name</label>
+                        <input type="text" class="form-control" id="name" placeholder="Name" name="user_name">
+                    </div>
+                    <div class="form-group">
+                        <label for="phone-number">Phone number</label>
+                        <input type="number" class="form-control" id="phone-number" placeholder="Phone number" name="user_phoneNumber">
+                    </div>
+                    <div class="form-group">
+                        <label for="emai-id">Email address</label>
+                        <input type="email" class="form-control" id="email-id" placeholder="Email-id" name="user_email"> 
+                    </div>
+                    <div class="form-group">
+                        <label for="query-heading">Bug heading</label>
+                        <input type="text" class="form-control" id="query-heading" placeholder="Query heading" name="bug_name">
+                    </div>
+                    <div class="form-group">
+                        <label for="feedback">Enter your query</label>
+                        <textarea id="feedback" class="form-control" cols="30" rows="10" placeholder="Enter your query" name="feedback_form" wrap="hard" ></textarea>
+                    </div>
+                    <button class="btn btn-primary" type="submit" >Submit</button>
+                </form>
+            </div>
+        </div>
+    </div>
+{% endblock %}
