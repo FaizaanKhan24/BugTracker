@@ -1,4 +1,4 @@
-# Final Project
+# Bug Tracker Web Application
 
 Web Programming with Python and JavaScript
 
